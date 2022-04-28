@@ -40,10 +40,10 @@ function main(){
 
     age.addEventListener("keyup", () => {   
         ckeckForm()
-        if(age.value < 10 || age.value > 100) { //check
+        if(age.value < 10 || age.value > 100) { //timer
         var id = setTimeout(timerAge, 2000)
     }
-        if(age.value >= 10 || age.value <= 100) { //check
+        if(age.value >= 10 || age.value <= 100) { //timer
         clearTimeout(id)
     }
         if(letterCaps.test(age.value) || letterNCaps.test(age.value)) {
@@ -93,7 +93,7 @@ function main(){
 
     .then (res => res.json())
     .then(data => {
-        JSON.parse(data)
+        JSON.parse(data) //Error
     })
 })
 }
