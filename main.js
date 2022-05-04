@@ -39,11 +39,12 @@ function main(){
     })
 
     age.addEventListener("keyup", () => {   
-        ckeckForm()
-        if(age.value < 10 || age.value > 100) { //timer
-        var id = setTimeout(timerAge, 2000)
+        ckeckForm() 
+        if(age.value < 10 || age.value > 100) {
+        window.id = setTimeout(timerAge, 2000)
+        window.id()
     }
-        if(age.value >= 10 || age.value <= 100) { //timer
+        if(age.value >= 10 || age.value <= 100) {
         clearTimeout(id)
     }
         if(letterCaps.test(age.value) || letterNCaps.test(age.value)) {
@@ -74,8 +75,8 @@ function main(){
     }
 }
 
-    function timerAge() { //check
-    alert("You must be older than 10 years old and younger than 100 years old") //check
+    function timerAge() { 
+    alert("You must be older than 10 years old and younger than 100 years old")
     age.value = age.value.slice(0, 0)
 }
 
@@ -83,18 +84,23 @@ function main(){
     sendButton.addEventListener("click" , function(e){
         e.preventDefault() 
         alert("The button has been pressed with your data")
-        console.log(information.get("name") + information.get("surname") + information.get("age") + information.get("mark")) //doesn't work
+        console.log(information.get("name") + information.get("surname") + information.get("age") + information.get("mark")) 
 
-    //E3 --- //null
+    //E3
     fetch("main.php" , {
         method: "POST",
-        body: information
+        body: name.value
+    })
+    .then(function(response){
+        console.log(response)
+        return response.json()
+
+    .then(function(data) {
+        console.log(data)
+        JSON.parse(data)
+    })
     })
 
-    .then (res => res.json())
-    .then(data => {
-        JSON.parse(data) //Error
-    })
 })
 }
 
