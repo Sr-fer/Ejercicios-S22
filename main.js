@@ -87,19 +87,16 @@ function main(){
         console.log(information.get("name") + information.get("surname") + information.get("age") + information.get("mark")) 
 
     //E3
-    fetch("main.php" , {
-        method: "POST",
-        body: name.value
-    })
-    .then(function(response){
-        console.log(response)
-        return response.json()
-
-    .then(function(data) {
-        console.log(data)
-        JSON.parse(data)
-    })
-    })
+    $.ajax({
+        data:{"name":name,"surname":surname, "age":age, "mark":mark},
+        url:'main.php',
+        type:'post',
+        success:function(response){
+        $("#conectResp").html(name + surname + age + mark)
+        var conect = JSON.parse(response);
+        console.log(conect);
+        }
+        })
 
 })
 }

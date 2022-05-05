@@ -35,6 +35,6 @@ if($_POST["name"] != ""  || $_POST["surname"] != ""  || $_POST["age"] != ""  || 
 //E5-------------------------------------------
     $StRet = new Student_return($student1, "OK");
 }
-echo json_encode ($student1);
+echo json_encode ($StRet);
+})
 ?>
-
