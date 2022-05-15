@@ -24,17 +24,18 @@ class Student_return {
     }
 }
 
+var $StRet=0;
+
 //E5
 $student1 = new Student($_POST["name"], $_POST["surname"], $_POST["age"], $_POST["mark"]);
 
 //E6-------------------------------------------
-if($_POST["name"] = "" || $_POST["surname"] = ""  || $_POST["age"] = ""  || $_POST["mark"] = "" ) {
+if($student1->name == "" || $student1->surname == ""  || $student1->age == ""  || $student1->mark == "" ) {
     $StRet = new Student_return($student1, "ERROR");
 }
-if($_POST["name"] != ""  || $_POST["surname"] != ""  || $_POST["age"] != ""  || $_POST["mark"] != "" ){
+if($student1->name != ""  || $student1->surname != ""  || $student1->age != ""  || $student1->mark != "" ){
 //E5-------------------------------------------
     $StRet = new Student_return($student1, "OK");
 }
 echo json_encode ($StRet);
-})
 ?>
