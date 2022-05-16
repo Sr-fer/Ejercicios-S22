@@ -7,7 +7,6 @@ function main(){
     var mark = document.getElementById("mark")
     var sendButton = document.getElementById("send")
     var form = document.getElementById("form")
-    var information = new FormData(form)
     var letterCaps = /[A-Z]/
     var letterNCaps = /[a-z]/
     var numbers = /[0-9]/
@@ -83,8 +82,8 @@ function main(){
     //E6 //E4
     sendButton.addEventListener("click" , function(e){
         e.preventDefault() 
-        alert("The button has been pressed with your data")
-        console.log(information.get("name") + information.get("surname") + information.get("age") + information.get("mark")) 
+        alert("The button has been pressed with your data") 
+        console.log("Name: " + name.value + "\n Surname: " + surname.value + "\n Age: " + age.value + "\n Mark: " +mark.value)
 
     //E3
     $.ajax({
@@ -92,12 +91,10 @@ function main(){
         url:'main.php',
         type:'post',
         success:function(response){
-        $("#conectResp").html(data)
         var conect = JSON.parse(response);
         console.log(conect);
         }
         })
-
 })
 }
 
